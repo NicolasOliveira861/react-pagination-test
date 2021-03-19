@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Container } from "./styles";
-
 import Posts from "../../components/Posts";
 import Pagination from "../../components/Pagination";
 
@@ -10,7 +8,7 @@ const Home: React.FC = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage] = useState(10);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -32,8 +30,8 @@ const Home: React.FC = () => {
   const paginate = (pageNumber: any) => setCurrentPage(pageNumber);
 
   return (
-    <Container>
-      <h1 className="text-primary"> My Blog </h1>
+    <div className="container mt-5">
+      <h1 className="text-primary mb-3"> My Blog </h1>
       <Pagination
         totalPosts={posts.length}
         postsPerPage={postsPerPage}
@@ -41,7 +39,7 @@ const Home: React.FC = () => {
         className="pagination"
       />
       <Posts posts={currentPosts} loading={loading} />
-    </Container>
+    </div>
   );
 };
 

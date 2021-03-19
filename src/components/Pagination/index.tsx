@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { PagesArea } from "../../pages/Home/styles";
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }: any) => {
   const pageNumbers = [];
@@ -10,19 +9,23 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }: any) => {
   }
 
   return (
-    <PagesArea>
-      <ul>
+    <nav>
+      <ul className="pagination">
         {pageNumbers.map((number) => {
           return (
-            <li key={number}>
-              <a onClick={() => paginate(number)} href="#">
+            <li key={number} className="page-item">
+              <a
+                onClick={() => paginate(number)}
+                href="#"
+                className="page-link"
+              >
                 {number}
               </a>
             </li>
           );
         })}
       </ul>
-    </PagesArea>
+    </nav>
   );
 };
 
