@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -26,7 +26,7 @@ const Home: React.FC = () => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
-  // Chane page
+  // Change page
   const paginate = (pageNumber: any) => setCurrentPage(pageNumber);
 
   return (
@@ -35,6 +35,9 @@ const Home: React.FC = () => {
       <Pagination
         totalPosts={posts.length}
         postsPerPage={postsPerPage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        setPostsPerPage={setPostsPerPage}
         paginate={paginate}
         className="pagination"
       />
