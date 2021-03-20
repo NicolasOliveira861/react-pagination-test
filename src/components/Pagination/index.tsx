@@ -76,7 +76,7 @@ const Pagination = ({
 
   // Decrement Button
   let pageDecrementBtn = null;
-  if (pageNumbers.length > maxPageNumberLimit) {
+  if (pageNumbers.length >= 1) {
     pageDecrementBtn = (
       <li>
         <button
